@@ -1,0 +1,9 @@
+{
+  "name": "incrementBy",
+  "method": "\t\tpublic void incrementBy(StatsCounter other){\n\t\t    CacheStats otherStats \u003d other.snapshot();\n\t\t    hitCount.add(otherStats.hitCount());\n\t\t    missCount.add(otherStats.missCount());\n\t\t    loadSuccessCount.add(otherStats.loadSuccessCount());\n\t\t    loadExceptionCount.add(otherStats.loadExceptionCount());\n\t\t    totalLoadTime.add(otherStats.totalLoadTime());\n\t\t    evictionCount.add(otherStats.evictionCount());\n\t\t}",
+  "startLine": 261,
+  "endLine": 269,
+  "classPath": "guava/android/guava/src/com/google/common/cache/AbstractCache.java",
+  "readabilityScore": 0.4298003911972046,
+  "label": "NONE"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "recordLoadException",
+  "method": "\t\t// b/122668874\n\t\t@SuppressWarnings(\"GoodTime\")\n\t\t@Override\n\t\tpublic void recordLoadException(long loadTime){\n\t\t    loadExceptionCount.increment();\n\t\t    totalLoadTime.add(loadTime);\n\t\t}",
+  "startLine": 232,
+  "endLine": 237,
+  "classPath": "guava/android/guava/src/com/google/common/cache/AbstractCache.java",
+  "readabilityScore": 0.7025222778320312,
+  "label": "NONE"
+}

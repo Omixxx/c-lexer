@@ -1,0 +1,9 @@
+{
+  "name": "snapshot",
+  "method": "\t\t@Override\n\t\tpublic CacheStats snapshot(){\n\t\t    return new CacheStats(negativeToMaxValue(hitCount.sum()), negativeToMaxValue(missCount.sum()), negativeToMaxValue(loadSuccessCount.sum()), negativeToMaxValue(loadExceptionCount.sum()), negativeToMaxValue(totalLoadTime.sum()), negativeToMaxValue(evictionCount.sum()));\n\t\t}",
+  "startLine": 244,
+  "endLine": 253,
+  "classPath": "guava/android/guava/src/com/google/common/cache/AbstractCache.java",
+  "readabilityScore": 0.03781336918473244,
+  "label": "NONE"
+}

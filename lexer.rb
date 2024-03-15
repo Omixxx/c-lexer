@@ -1,17 +1,19 @@
 require "code-lexer"
 require "json"
 
-def convert(file_json)
-
+def convert(method)
   java_lexer = CodeLexer.get("java")
-
   abstractor = CodeLexer::Abstractor.new.abstract_strings.abstract_numbers.abstract_indentations.abstract_spaces
-  before = " // Futures\n @GwtIncompatible\n public ListenableFuture\u003cV\u003e reload(K key, V oldValue) throws Exception{\n     checkNotNull(key);\n     checkNotNull(oldValue);\n     return Futures.immediateFuture(load(key));\n }"
-  lexed_before = java_lexer.lex(before)
+  lexed_before = java_lexer.lex(method)
   stream_before = lexed_before.token_stream(abstractor).to_s
+  return stream_before.gsub("¬", "$").downcase
+end
 
-  stream_before = stream_before.gsub("¬", "$").downcase
-  puts(stream_before)
+def process(file_path)
+  file_content = File.read(file_path)
+  data_hash = JSON.parse(file_content)
+  converted_method = convert(data_hash["method"])
+  puts(converted_method)
 end
 
 def explore_path(path)
@@ -22,11 +24,11 @@ def explore_path(path)
       if File.directory?(entry_path)
         explore_path(entry_path)
       else
-        puts("File: #{entry_path}")
+        process(entry_path)
       end
     end
   else
-    puts("File: #{path}")
+    process(entry_path)
   end
 end
 
