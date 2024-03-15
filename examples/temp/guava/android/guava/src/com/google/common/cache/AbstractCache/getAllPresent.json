@@ -1,9 +1,0 @@
-{
-  "name": "getAllPresent",
-  "method": "\t\t@Override\n\t\tpublic ImmutableMap\u003cK, V\u003e getAllPresent(Iterable\u003c? extends Object\u003e keys){\n\t\t    Map\u003cK, V\u003e result \u003d Maps.newLinkedHashMap();\n\t\t    for (Object key : keys) {\n\t\t        if (!result.containsKey(key)) {\n\t\t            @SuppressWarnings(\"unchecked\")\n\t\t            K castKey \u003d (K) key;\n\t\t            V value \u003d getIfPresent(key);\n\t\t            if (value !\u003d null) {\n\t\t                result.put(castKey, value);\n\t\t            }\n\t\t        }\n\t\t    }\n\t\t    return ImmutableMap.copyOf(result);\n\t\t}",
-  "startLine": 66,
-  "endLine": 80,
-  "classPath": "guava/android/guava/src/com/google/common/cache/AbstractCache.java",
-  "readabilityScore": 0.5262389779090881,
-  "label": "NONE"
-}

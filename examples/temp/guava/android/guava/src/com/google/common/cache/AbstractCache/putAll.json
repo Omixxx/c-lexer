@@ -1,9 +1,0 @@
-{
-  "name": "putAll",
-  "method": "\t\t@Override\n\t\tpublic void putAll(Map\u003c? extends K, ? extends V\u003e m){\n\t\t    for (Entry\u003c? extends K, ? extends V\u003e entry : m.entrySet()) {\n\t\t        put(entry.getKey(), entry.getValue());\n\t\t    }\n\t\t}",
-  "startLine": 89,
-  "endLine": 94,
-  "classPath": "guava/android/guava/src/com/google/common/cache/AbstractCache.java",
-  "readabilityScore": 0.7960557341575623,
-  "label": "NONE"
-}

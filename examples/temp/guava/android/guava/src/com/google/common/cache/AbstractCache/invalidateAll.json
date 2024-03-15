@@ -1,9 +1,0 @@
-{
-  "name": "invalidateAll",
-  "method": "\t\t@Override\n\t\tpublic void invalidateAll(Iterable\u003c? extends Object\u003e keys){\n\t\t    for (Object key : keys) {\n\t\t        invalidate(key);\n\t\t    }\n\t\t}",
-  "startLine": 110,
-  "endLine": 116,
-  "classPath": "guava/android/guava/src/com/google/common/cache/AbstractCache.java",
-  "readabilityScore": 0.7657623291015625,
-  "label": "NONE"
-}

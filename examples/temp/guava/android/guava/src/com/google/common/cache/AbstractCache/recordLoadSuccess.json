@@ -1,9 +1,0 @@
-{
-  "name": "recordLoadSuccess",
-  "method": "\t\t// b/122668874\n\t\t@SuppressWarnings(\"GoodTime\")\n\t\t@Override\n\t\tpublic void recordLoadSuccess(long loadTime){\n\t\t    loadSuccessCount.increment();\n\t\t    totalLoadTime.add(loadTime);\n\t\t}",
-  "startLine": 225,
-  "endLine": 230,
-  "classPath": "guava/android/guava/src/com/google/common/cache/AbstractCache.java",
-  "readabilityScore": 0.7113763689994812,
-  "label": "NONE"
-}
