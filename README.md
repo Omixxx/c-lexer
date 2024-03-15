@@ -1,6 +1,6 @@
 ## About the project
 
-Simple script that, through this [gemma](https://github.com/intersimone999/code-lexer) (currently the branch `feature/spaces-handling`),
+Simple script that, through this [gem](https://github.com/intersimone999/code-lexer) (currently the branch `feature/spaces-handling`),
 allows you to tokenize the json results of the tool [clarity](https://github.com/Omixxx/clarity)
 
 ## Setup
