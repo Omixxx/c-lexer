@@ -1,0 +1,55 @@
+name,startLine,endLine,classPath,readabilityScore,label,original_method,abstract_method,model_prediction,manula_flag
+getAllPresent,66,80,guava/android/guava/src/com/google/common/cache/AbstractCache.java,0.5262389779090881,NONE,"		@Override
+		public ImmutableMap<K, V> getAllPresent(Iterable<? extends Object> keys){
+		    Map<K, V> result = Maps.newLinkedHashMap();
+		    for (Object key : keys) {
+		        if (!result.containsKey(key)) {
+		            @SuppressWarnings(""unchecked"")
+		            K castKey = (K) key;
+		            V value = getIfPresent(key);
+		            if (value != null) {
+		                result.put(castKey, value);
+		            }
+		        }
+		    }
+		    return ImmutableMap.copyOf(result);
+		}","$indentation$ @ override $newline$ $indentation$ public $whitespace$ immutablemap < k , $whitespace$ v > $whitespace$ getallpresent ( iterable < ? $whitespace$ extends $whitespace$ object > $whitespace$ keys ) { $newline$ $indentation$ map < k , $whitespace$ v > $whitespace$ result $whitespace$ = $whitespace$ maps . newlinkedhashmap ( ) ; $newline$ $indentation$ for $whitespace$ ( object $whitespace$ key $whitespace$ : $whitespace$ keys ) $whitespace$ { $newline$ $indentation$ if $whitespace$ ( ! result . containskey ( key ) ) $whitespace$ { $newline$ $indentation$ @ suppresswarnings ( $string$ ) $newline$ $indentation$ k $whitespace$ castkey $whitespace$ = $whitespace$ ( k ) $whitespace$ key ; $newline$ $indentation$ v $whitespace$ value $whitespace$ = $whitespace$ getifpresent ( key ) ; $newline$ $indentation$ if $whitespace$ ( value $whitespace$ != $whitespace$ null ) $whitespace$ { $newline$ $indentation$ result . put ( castkey , $whitespace$ value ) ; $newline$ $indentation$ } $newline$ $indentation$ } $newline$ $indentation$ } $newline$ $indentation$ return $whitespace$ immutablemap . copyof ( result ) ; $newline$ $indentation$ }","",""
+putAll,89,94,guava/android/guava/src/com/google/common/cache/AbstractCache.java,0.7960557341575623,NONE,"		@Override
+		public void putAll(Map<? extends K, ? extends V> m){
+		    for (Entry<? extends K, ? extends V> entry : m.entrySet()) {
+		        put(entry.getKey(), entry.getValue());
+		    }
+		}","$indentation$ @ override $newline$ $indentation$ public $whitespace$ void $whitespace$ putall ( map < ? $whitespace$ extends $whitespace$ k , $whitespace$ ? $whitespace$ extends $whitespace$ v > $whitespace$ m ) { $newline$ $indentation$ for $whitespace$ ( entry < ? $whitespace$ extends $whitespace$ k , $whitespace$ ? $whitespace$ extends $whitespace$ v > $whitespace$ entry $whitespace$ : $whitespace$ m . entryset ( ) ) $whitespace$ { $newline$ $indentation$ put ( entry . getkey ( ) , $whitespace$ entry . getvalue ( ) ) ; $newline$ $indentation$ } $newline$ $indentation$ }","",""
+invalidateAll,110,116,guava/android/guava/src/com/google/common/cache/AbstractCache.java,0.7657623291015625,NONE,"		@Override
+		public void invalidateAll(Iterable<? extends Object> keys){
+		    for (Object key : keys) {
+		        invalidate(key);
+		    }
+		}",$indentation$ @ override $newline$ $indentation$ public $whitespace$ void $whitespace$ invalidateall ( iterable < ? $whitespace$ extends $whitespace$ object > $whitespace$ keys ) { $newline$ $indentation$ for $whitespace$ ( object $whitespace$ key $whitespace$ : $whitespace$ keys ) $whitespace$ { $newline$ $indentation$ invalidate ( key ) ; $newline$ $indentation$ } $newline$ $indentation$ },"",""
+recordLoadSuccess,225,230,guava/android/guava/src/com/google/common/cache/AbstractCache.java,0.7113763689994812,NONE,"		// b/122668874
+		@SuppressWarnings(""GoodTime"")
+		@Override
+		public void recordLoadSuccess(long loadTime){
+		    loadSuccessCount.increment();
+		    totalLoadTime.add(loadTime);
+		}",$indentation$ $//·b/122668874$ $newline$ $indentation$ @ suppresswarnings ( $string$ ) $newline$ $indentation$ @ override $newline$ $indentation$ public $whitespace$ void $whitespace$ recordloadsuccess ( long $whitespace$ loadtime ) { $newline$ $indentation$ loadsuccesscount . increment ( ) ; $newline$ $indentation$ totalloadtime . add ( loadtime ) ; $newline$ $indentation$ },"",""
+recordLoadException,232,237,guava/android/guava/src/com/google/common/cache/AbstractCache.java,0.7025222778320312,NONE,"		// b/122668874
+		@SuppressWarnings(""GoodTime"")
+		@Override
+		public void recordLoadException(long loadTime){
+		    loadExceptionCount.increment();
+		    totalLoadTime.add(loadTime);
+		}",$indentation$ $//·b/122668874$ $newline$ $indentation$ @ suppresswarnings ( $string$ ) $newline$ $indentation$ @ override $newline$ $indentation$ public $whitespace$ void $whitespace$ recordloadexception ( long $whitespace$ loadtime ) { $newline$ $indentation$ loadexceptioncount . increment ( ) ; $newline$ $indentation$ totalloadtime . add ( loadtime ) ; $newline$ $indentation$ },"",""
+snapshot,244,253,guava/android/guava/src/com/google/common/cache/AbstractCache.java,0.03781336918473244,NONE,"		@Override
+		public CacheStats snapshot(){
+		    return new CacheStats(negativeToMaxValue(hitCount.sum()), negativeToMaxValue(missCount.sum()), negativeToMaxValue(loadSuccessCount.sum()), negativeToMaxValue(loadExceptionCount.sum()), negativeToMaxValue(totalLoadTime.sum()), negativeToMaxValue(evictionCount.sum()));
+		}","$indentation$ @ override $newline$ $indentation$ public $whitespace$ cachestats $whitespace$ snapshot ( ) { $newline$ $indentation$ return $whitespace$ new $whitespace$ cachestats ( negativetomaxvalue ( hitcount . sum ( ) ) , $whitespace$ negativetomaxvalue ( misscount . sum ( ) ) , $whitespace$ negativetomaxvalue ( loadsuccesscount . sum ( ) ) , $whitespace$ negativetomaxvalue ( loadexceptioncount . sum ( ) ) , $whitespace$ negativetomaxvalue ( totalloadtime . sum ( ) ) , $whitespace$ negativetomaxvalue ( evictioncount . sum ( ) ) ) ; $newline$ $indentation$ }","",""
+incrementBy,261,269,guava/android/guava/src/com/google/common/cache/AbstractCache.java,0.4298003911972046,NONE,"		public void incrementBy(StatsCounter other){
+		    CacheStats otherStats = other.snapshot();
+		    hitCount.add(otherStats.hitCount());
+		    missCount.add(otherStats.missCount());
+		    loadSuccessCount.add(otherStats.loadSuccessCount());
+		    loadExceptionCount.add(otherStats.loadExceptionCount());
+		    totalLoadTime.add(otherStats.totalLoadTime());
+		    evictionCount.add(otherStats.evictionCount());
+		}",$indentation$ public $whitespace$ void $whitespace$ incrementby ( statscounter $whitespace$ other ) { $newline$ $indentation$ cachestats $whitespace$ otherstats $whitespace$ = $whitespace$ other . snapshot ( ) ; $newline$ $indentation$ hitcount . add ( otherstats . hitcount ( ) ) ; $newline$ $indentation$ misscount . add ( otherstats . misscount ( ) ) ; $newline$ $indentation$ loadsuccesscount . add ( otherstats . loadsuccesscount ( ) ) ; $newline$ $indentation$ loadexceptioncount . add ( otherstats . loadexceptioncount ( ) ) ; $newline$ $indentation$ totalloadtime . add ( otherstats . totalloadtime ( ) ) ; $newline$ $indentation$ evictioncount . add ( otherstats . evictioncount ( ) ) ; $newline$ $indentation$ },"",""
