@@ -74,7 +74,7 @@ csv_struct <<
     "original_method",
     "abstract_method",
     "model_prediction",
-    "manula_flag"
+    "manual_flag"
   ]
 
 list.each do |output_csv|

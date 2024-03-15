@@ -1,4 +1,4 @@
-name,startLine,endLine,classPath,readabilityScore,label,original_method,abstract_method,model_prediction,manula_flag
+name,startLine,endLine,classPath,readabilityScore,label,original_method,abstract_method,model_prediction,manual_flag
 getAllPresent,66,80,guava/android/guava/src/com/google/common/cache/AbstractCache.java,0.5262389779090881,NONE,"		@Override
 		public ImmutableMap<K, V> getAllPresent(Iterable<? extends Object> keys){
 		    Map<K, V> result = Maps.newLinkedHashMap();
