@@ -2,7 +2,7 @@ require 'code-lexer'
 require 'json'
 require('csv')
 
-require_relative('OutputCsv')
+require_relative('Output')
 
 def convert(method)
   java_lexer = CodeLexer.get('java')
@@ -24,7 +24,7 @@ def process(file_path)
   data_hash = JSON.parse(file_content)
   puts("Processing: #{data_hash['name']}")
   abstract_method = convert(data_hash['method'])
-  OutputCsv.new(
+  Output.new(
     data_hash['name'],
     data_hash['startLine'],
     data_hash['endLine'],
@@ -107,7 +107,7 @@ list.each do |output_csv|
     ]
 end
 
-CSV.open('output.csv', 'w') do |csv|
+CSV.open('output.tsv', 'w', col_sep: "\t") do |csv|
   csv_struct.each do |row|
     csv << row
   end
