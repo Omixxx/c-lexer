@@ -11,7 +11,7 @@ def convert(method)
   begin
     lexed_before = java_lexer.lex(method)
     stream_before = lexed_before.token_stream(abstractor).to_s
-    stream_before = stream_before.gsub('¬', '$').downcase
+    stream_before = stream_before.gsub('¬', '$')
   rescue StandardError
     raise 'Error in lexer, method too long'
   end
