@@ -9,7 +9,9 @@ class Output
     :original_method,
     :abstract_method,
     :model_prediction,
-    :manual_flag
+    :is_diff,
+    :partially_detokenized_method,
+    :detokenized_method
   )
 
   def initialize(
@@ -22,7 +24,9 @@ class Output
     original_method,
     abstract_method,
     model_prediction,
-    manual_flag
+    is_diff,
+    partially_detokenized_method,
+    detokenized_method
   )
     @name = name
     @startLine = startLine
@@ -33,6 +37,8 @@ class Output
     @original_method = original_method
     @abstract_method = abstract_method
     @model_prediction = model_prediction
-    @manual_flag = manual_flag
+    @is_diff = is_diff
+    @partially_detokenized_method = partially_detokenized_method
+    @detokenized_method = detokenized_method
   end
 end

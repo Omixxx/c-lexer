@@ -34,6 +34,8 @@ def process(file_path)
     data_hash['method'],
     abstract_method,
     '',
+    '',
+    '',
     ''
   )
 end
@@ -88,7 +90,9 @@ csv_struct <<
     original_method
     abstract_method
     model_prediction
-    manual_flag
+    is_diff
+    partially_detokenized_method
+    detokenized_method
   ]
 
 list.each do |output_csv|
@@ -103,7 +107,9 @@ list.each do |output_csv|
       output_csv.original_method,
       output_csv.abstract_method,
       output_csv.model_prediction,
-      output_csv.manual_flag
+      output_csv.is_diff,
+      output_csv.partially_detokenized_method,
+      output_csv.detokenized_method
     ]
 end
 
