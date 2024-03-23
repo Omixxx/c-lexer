@@ -11,7 +11,9 @@ class Output
     :model_prediction,
     :is_diff,
     :partially_detokenized_method,
-    :detokenized_method
+    :detokenized_method,
+    :predictions_readability_score,
+    :does_test_suite_pass
   )
 
   def initialize(
@@ -40,5 +42,7 @@ class Output
     @is_diff = is_diff
     @partially_detokenized_method = partially_detokenized_method
     @detokenized_method = detokenized_method
+    @predictions_readability_score = predictions_readability_score
+    @does_test_suite_pass = does_test
   end
 end

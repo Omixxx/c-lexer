@@ -36,6 +36,8 @@ def process(file_path)
     '',
     '',
     '',
+    '',
+    '',
     ''
   )
 end
@@ -93,6 +95,8 @@ csv_struct <<
     is_diff
     partially_detokenized_method
     detokenized_method
+    predictions_readability_score
+    does_test_suite_pass
   ]
 
 list.each do |output_csv|
@@ -109,7 +113,9 @@ list.each do |output_csv|
       output_csv.model_prediction,
       output_csv.is_diff,
       output_csv.partially_detokenized_method,
-      output_csv.detokenized_method
+      output_csv.detokenized_method,
+      output_csv.predictions_readability_score,
+      output_csv.does_test_suite_pass
     ]
 end
 
